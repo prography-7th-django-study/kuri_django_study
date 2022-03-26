@@ -160,6 +160,9 @@ CORS_ALLOW_CREDENTICALS = True
 #     ]
 # }
 
+ALLOWED_HOSTS = [
+    "3.36.76.147"
+]
 
 INTERNAL_IPS = [
     "127.0.0.1",
