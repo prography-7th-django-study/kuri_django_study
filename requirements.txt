@@ -1,0 +1,9 @@
+django
+djangorestframework
+django-mptt
+django-mptt-admin
+django-cors-headers
+PyJWT
+drf-yasg
+django-debug-toolbar
+django-debug-toolbar-request-history
