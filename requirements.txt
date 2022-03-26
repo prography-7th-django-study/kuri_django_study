@@ -7,3 +7,4 @@ PyJWT
 drf-yasg
 django-debug-toolbar
 django-debug-toolbar-request-history
+uwsgi
