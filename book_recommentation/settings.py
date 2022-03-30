@@ -195,7 +195,9 @@ DEBUG_TOOLBAR_PANELS = [
 
 
 # static files
-STATICFILES_DIRS = [os.path.join(os.path.normpath(BASE_DIR), "static")]
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, "static")]
 
 
 
