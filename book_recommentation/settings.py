@@ -195,10 +195,5 @@ DEBUG_TOOLBAR_PANELS = [
 
 
 # static files
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, "static")]
-
-
-
-STATICFILES_FINDERS = ['django.contrib.staticfiles.finders.FileSystemFinder',]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
