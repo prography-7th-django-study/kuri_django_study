@@ -92,25 +92,25 @@ class LoginView(APIView):
 ### authenticated user
 # eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MiwiZXhwIjoxNjQ3Mjc2NDUxLCJpYXQiOjE2NDcyNzI4NTF9.P4uK_EkpQdSZx8Iv54NMUcINS4IrGGrXkOtzoeUVFFE
 # 미들웨어 : 유저를 인증하는 과정
-class UserView(APIView):
-
-    def get(self, request):
-        token = request.COOKIES.get('jwt')
-
-        if not token:
-            raise AuthenticationFailed('Unauthenticated!')
-
-        try:
-            # 토큰 HS256 알고리즘으로 디코딩
-            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
-
-        # token의 payload에 있는 user id로 user 찾음
-        user = User.objects.filter(id=payload['id']).first()
-        # 받은 아이디로 시리얼라이즈
-        serializer = UserSerializer(user)
-        return Response(serializer.data)
+# class UserView(APIView):
+#
+#     def get(self, request):
+#         token = request.COOKIES.get('jwt')
+#
+#         if not token:
+#             raise AuthenticationFailed('Unauthenticated!')
+#
+#         try:
+#             # 토큰 HS256 알고리즘으로 디코딩
+#             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
+#         except jwt.ExpiredSignatureError:
+#             raise AuthenticationFailed('Unauthenticated!')
+#
+#         # token의 payload에 있는 user id로 user 찾음
+#         user = User.objects.filter(id=payload['id']).first()
+#         # 받은 아이디로 시리얼라이즈
+#         serializer = UserSerializer(user)
+#         return Response(serializer.data)
 
 
 

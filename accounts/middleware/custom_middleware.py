@@ -9,11 +9,18 @@ from accounts.views import UserSerializer
 
 
 
+
 class JsonWebTokenMiddleWare:
+    SAFE_METHOD = ['GET', 'OPTIONS', 'HEAD']
+
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
+        if request.method in self.SAFE_METHOD:
+            return self.get_response(request)
+
+
         token = request.COOKIES.get('jwt')
 
         if not token:
@@ -26,5 +33,8 @@ class JsonWebTokenMiddleWare:
             raise AuthenticationFailed('Unauthenticated!')
 
         user = User.objects.filter(id=payload['id']).first()
+
+        if user is None:
+            raise AuthenticationFailed('Unauthenticated!')
 
         return self.get_response(request)

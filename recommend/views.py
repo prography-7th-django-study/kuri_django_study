@@ -12,15 +12,18 @@ from .serializers import BookSerializer, BookSelectSerializer, BookCRUDSerialize
 class BookCRUD(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookCRUDSerializer
+    permission_classes = [IsAuthenticated]
 
 class CategoryCRUD(viewsets.ModelViewSet):
     queryset = SmallCategory.objects.all()
     serializer_class = CategoryCRUDSerializer
+    permission_classes = [IsAuthenticated]
 
 
 class BookListGenericAPIView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated]
 
     # [{"id":1}, {"id":2}]
 
@@ -44,6 +47,7 @@ class BookListSelectGenericAPIView(generics.UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSelectSerializer
     http_method_names = ['patch']
+    permission_classes = [IsAuthenticated]
 
     # permission_classes = [IsAuthenticated]
 
@@ -79,7 +83,7 @@ class BookListSelectGenericAPIView(generics.UpdateAPIView):
 class BookListFavoriteGenericAPIView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     # 선택한 책 중에 작가, 대,중,소 분류, 출판사가 있으면 가중치를 줌
     # 그리고 가장 높은 가중치의 상위 3개만 띄워줌
