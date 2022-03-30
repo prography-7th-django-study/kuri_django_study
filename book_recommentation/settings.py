@@ -150,7 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # by providing a value for the AUTH_USER_MODEL setting that references a custom model
 AUTH_USER_MODEL = 'accounts.User'
 
-CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTICALS = True
 
 # REST_FRAMEWORK = {
@@ -164,9 +164,9 @@ ALLOWED_HOSTS = [
     "3.35.53.105"
 ]
 
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+# INTERNAL_IPS = [
+#     "127.0.0.1",
+# ]
 
 # DEBUG_TOOLBAR_CONFIG = {
 #         'SHOW_TOOLBAR_CALLBACK': 'ddt_request_history.panels.request_history.allow_ajax',
